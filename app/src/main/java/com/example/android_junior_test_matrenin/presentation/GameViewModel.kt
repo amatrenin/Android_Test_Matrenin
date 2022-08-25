@@ -1,7 +1,6 @@
 package com.example.android_junior_test_matrenin.presentation
 
 import androidx.lifecycle.ViewModel
-import com.example.android_junior_test_matrenin.data.NumberData
 import com.example.android_junior_test_matrenin.domain.usecase.BestScoreUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -14,8 +13,4 @@ class GameViewModel @Inject constructor(private val bestScoreUseCase: BestScoreU
         if (value > bestScoreUseCase.getBestScore())
             bestScoreUseCase.setBestScore(value)
     }
-}
-
-private operator fun Number.compareTo(bestScore: NumberData): Int {
-    return bestScore.Number
 }

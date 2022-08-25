@@ -1,20 +1,16 @@
 package com.example.android_junior_test_matrenin.data.repository
 
 import android.content.Context
-import com.example.android_junior_test_matrenin.data.NumberData
 import com.example.android_junior_test_matrenin.domain.repository.ScoreRepository
 import javax.inject.Inject
 
 class ScoreRepositoryImpl @Inject constructor(private val context: Context) : ScoreRepository {
 
-
-
-    override fun getScore(): NumberData {
-        val NumberData = (context.getSharedPreferences(
+    override fun getScore(): Int {
+        return context.getSharedPreferences(
             BEST_SCORE_NAME,
             Context.MODE_PRIVATE
-        ).getInt(BEST_SCORE_KEY, 0))
-        return NumberData(Number = NumberData)
+        ).getInt(BEST_SCORE_KEY, 0)
     }
 
     override fun setScore(value: Int) {
