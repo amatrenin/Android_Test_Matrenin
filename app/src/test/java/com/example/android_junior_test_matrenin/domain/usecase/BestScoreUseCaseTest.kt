@@ -1,6 +1,6 @@
 package com.example.android_junior_test_matrenin.domain.usecase
 
-import com.example.android_junior_test_matrenin.data.NumberData
+
 import com.example.android_junior_test_matrenin.domain.repository.ScoreRepository
 import org.junit.Assert
 import org.junit.Test
@@ -14,12 +14,12 @@ class BestScoreUseCaseTest {
     @Test
     fun shouldReturnCorrectBestScore() {
 
-        val testData = NumberData(Number = 2)
+        val testData = Int.MAX_VALUE
         Mockito.`when`(mScoreRepository.getScore()).thenReturn(testData)
 
         val useCase = BestScoreUseCase(scoreRepository = mScoreRepository)
         val actual = useCase.getBestScore()
-        val expected = NumberData(Number = 2)
+        val expected = Int.MAX_VALUE
         Assert.assertEquals(expected, actual)
     }
 }
